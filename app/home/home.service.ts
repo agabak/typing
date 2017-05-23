@@ -12,7 +12,7 @@ namespace  App.Home {
         } 
       
        public getAll(): angular.IPromise<angular.IHttpPromiseCallbackArg<any>> {
-            return this.dataServiceHelper.get(Home.ApplicationUrls.all);
+            return this.dataServiceHelper.get('/main/GetAll');
         }
   }
    angular.module('app.home')

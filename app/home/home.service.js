@@ -8,7 +8,7 @@ var App;
                 this.dataServiceHelper = dataServiceHelper;
             }
             HomeService.prototype.getAll = function () {
-                return this.dataServiceHelper.get(Home.ApplicationUrls.all);
+                return this.dataServiceHelper.get('/main/GetAll');
             };
             return HomeService;
         }());

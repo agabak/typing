@@ -11,7 +11,7 @@ var App;
         ApplicationUrls.details = '/ApplicationData/Get/';
         ApplicationUrls.create = '/ApplicationData/Create';
         ApplicationUrls.edit = '/ApplicationData/Edit';
-        ApplicationUrls.all = '/ApplicationData/GetAll';
+        ApplicationUrls.all = '/main/GetAll';
         Home.ApplicationUrls = ApplicationUrls;
     })(Home = App.Home || (App.Home = {}));
 })(App || (App = {}));

@@ -10,16 +10,15 @@ namespace App.Home{
     export class HomeController implements IHomeController {
          public static $inject: string[] = ['$state','homeService' ]
                public title:String ="Working with Typing";
+               public ListUser:any[] = [];
              constructor(private $state: angular.ui.IStateService,
                     private homeService: Home.IHomeService) {
-        }
-
-        public ListUser:any[] = [];
-
-        public getAllUser():void {
-            this.homeService.getAll().then((response:any)=>{
+                        
+             this.homeService.getAll().then((response:any)=>{
                 this.ListUser = response.data
-            })
+             })
+        }
+        public getAllUser():void {
         }
     }
     
