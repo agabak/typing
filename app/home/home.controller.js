@@ -4,11 +4,21 @@ var App;
     (function (Home) {
         'use strict';
         var HomeController = (function () {
-            function HomeController() {
+            function HomeController($state, homeService) {
+                this.$state = $state;
+                this.homeService = homeService;
                 this.title = "Working with Typing";
+                this.ListUser = [];
             }
+            HomeController.prototype.getAllUser = function () {
+                var _this = this;
+                this.homeService.getAll().then(function (response) {
+                    _this.ListUser = response.data;
+                });
+            };
             return HomeController;
         }());
+        HomeController.$inject = ['$state', 'homeService'];
         Home.HomeController = HomeController;
         angular.module('app.home')
             .controller('HomeController', HomeController);
