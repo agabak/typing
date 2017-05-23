@@ -12,5 +12,9 @@
       "include": [
     "app/**/*",
     "typings/**/*.d.ts"
+  ],
+  "exclude": [
+      "**/*.js",
+      "**/*.js.map"
   ]
 }
