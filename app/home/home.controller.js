@@ -1,13 +1,16 @@
 var App;
 (function (App) {
-    'use strict';
-    var HomeController = (function () {
-        function HomeController() {
-            this.title = "Working with Typing";
-        }
-        return HomeController;
-    }());
-    App.HomeController = HomeController;
-    angular.module('app')
-        .controller('HomeController', HomeController);
+    var Home;
+    (function (Home) {
+        'use strict';
+        var HomeController = (function () {
+            function HomeController() {
+                this.title = "Working with Typing";
+            }
+            return HomeController;
+        }());
+        Home.HomeController = HomeController;
+        angular.module('app.home')
+            .controller('HomeController', HomeController);
+    })(Home = App.Home || (App.Home = {}));
 })(App || (App = {}));

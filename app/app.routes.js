@@ -7,7 +7,7 @@ var App;
             $stateProvider.state('home', {
                 url: '/home',
                 templateUrl: '/app/home/home.html',
-                controller: App.HomeController,
+                controller: App.Home.HomeController,
                 controllerAs: 'vm',
             });
             // Specify HTML5 mode (using the History APIs) or HashBang syntax.

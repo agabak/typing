@@ -1,4 +1,4 @@
-namespace App{
+namespace App.Home{
     'use strict';
     
     export interface IHomeController {
@@ -9,6 +9,6 @@ namespace App{
                public title:String ="Working with Typing"
     }
 
-    angular.module('app')
+    angular.module('app.home')
            .controller('HomeController', HomeController)
 }
