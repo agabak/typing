@@ -5,7 +5,7 @@ var App;
         function RouteConfig($stateProvider, $urlRouterProvider, $locationProvider) {
             $urlRouterProvider.otherwise('/');
             $stateProvider.state('home', {
-                url: '/home',
+                url: '/',
                 templateUrl: '/app/home/home.html',
                 controller: App.Home.HomeController,
                 controllerAs: 'vm',

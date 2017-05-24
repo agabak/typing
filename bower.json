@@ -18,6 +18,9 @@
   ],
   "dependencies": {
     "angular": "^1.6.4",
-    "angular-ui-router": "^1.0.3"
+    "angular-ui-router": "^1.0.3",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.6.3",
+    "jquery": "^1.11.3"
   }
 }

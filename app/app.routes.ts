@@ -11,7 +11,7 @@ namespace App {
             $urlRouterProvider.otherwise('/');
 
             $stateProvider.state('home', {
-                url: '/home',
+                url: '/',
                 templateUrl: '/app/home/home.html',
                 controller: Home.HomeController,
                 controllerAs: 'vm',
