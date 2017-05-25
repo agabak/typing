@@ -9,7 +9,7 @@ namespace App.Home{
 
     export class HomeController implements IHomeController {
          public static $inject: string[] = ['$state','homeService' ]
-               public title:String ="Working with Typing";
+               public title:String ="Today's News Headlines, Breaking News & Recent News- | Watanzania leo";
                public ListUser:any[] = [];
              constructor(private $state: angular.ui.IStateService,
                     private homeService: Home.IHomeService) {

@@ -6,6 +6,8 @@ var cleanCSS = require('gulp-clean-css');
 var rename = require("gulp-rename");
 var uglify = require('gulp-uglify');
 var pkg = require('./package.json');
+var concat = require('gulp-concat');
+var clean = require('gulp-rimraf');
 
 // Set the banner content
 var banner = ['/*!\n',
@@ -15,6 +17,18 @@ var banner = ['/*!\n',
     ' */\n',
     ''
 ].join('');
+
+//Clean all the folders before bulid or dev
+gulp.task('clean-build', [], function() {
+  console.log("Clean all files in build folder");
+  return gulp.src('build/*',{ read: false }).pipe(clean());
+});
+
+gulp.task('clean-app', [], function() {
+  console.log("Clean one all files in build folder");
+  return gulp.src('app/**/*.js',{ read: false }).pipe(clean());
+});
+
 
 // Compile LESS files from /less into /css
 gulp.task('less', function() {
@@ -29,10 +43,10 @@ gulp.task('less', function() {
 
 // Minify compiled CSS
 gulp.task('minify-css', ['less'], function() {
-    return gulp.src('client/app/css/style.css')
+    return gulp.src('css/clean-blog.css')
         .pipe(cleanCSS({ compatibility: 'ie8' }))
         .pipe(rename({ suffix: '.min' }))
-        .pipe(gulp.dest('client/app/css'))
+        .pipe(gulp.dest('css'))
         .pipe(browserSync.reload({
             stream: true
         }))
@@ -84,7 +98,56 @@ gulp.task('minify-js-app', function() {
 });
 
 
-gulp.task('minify-js', ['minify-js-functions', 'minify-js-common', 'minify-js-home', 'minify-js-app']);
+//Vendor  files library to the build
+gulp.task('minify-js-server',function(){
+      gulp.src(['server.js','package.json','index.html'])
+          .pipe(gulp.dest('build'))
+      gulp.src('api/controllers/*.js')
+          .pipe(gulp.dest('build/api/controllers'))
+      gulp.src('api/routers/*.js')
+          .pipe(gulp.dest('build/api/routers')) 
+     gulp.src('client/public/bootstrap/js/*.min.js')
+          .pipe(gulp.dest('build/client/public/bootstrap/js'))
+     gulp.src(['client/app/js/*.min.js','client/app/js/jquery.js'])
+          .pipe(gulp.dest('client/app/js'))  
+     gulp.src('client/public/angular/*.min.js')
+          .pipe(gulp.dest('build/client/public/angular')) 
+     gulp.src('client/public/angular/*.min.js')
+          .pipe(gulp.dest('build/client/public/angular')) 
+     gulp.src('client/public/angular-ui-router/*.min.js')
+        .pipe(gulp.dest('build/client/public/angular-ui-router'))
+     gulp.src('client/app/css/*.min.css')
+        .pipe(gulp.dest('build/client/app/css'))
+     gulp.src('client/app/js/*.min.js')
+        .pipe(gulp.dest('build/client/app/js'))
+     gulp.src('client/app/img/**')
+        .pipe(gulp.dest('build/client/app/img'))
+     gulp.src('client/app/fonts/**')
+        .pipe(gulp.dest('build/client/app/fonts')) 
+    gulp.src('client/app/css/style.css') 
+        .pipe(gulp.dest('build/client/app/css'))
+    gulp.src('app/home/*.html')
+        .pipe(gulp.dest('build/app/home')) 
+    gulp.src('app/common/*.js')
+        .pipe(uglify())
+        .pipe(header(banner, { pkg: pkg }))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('app/common'))
+    gulp.src('build/app/home/*.js')
+        .pipe(uglify())
+        .pipe(header(banner, { pkg: pkg }))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('build/app/home'))
+
+    gulp.src('app/*.js')
+        .pipe(uglify())
+        .pipe(header(banner, { pkg: pkg }))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(gulp.dest('build/app'))   
+})
+
+
+gulp.task('minify-js', ['minify-js-functions', 'minify-js-common', 'minify-js-home', 'minify-js-app','minify-js-server']);
 
 // Copy vendor libraries from /node_modules into /app/public
 gulp.task('copy', function() {
@@ -111,6 +174,15 @@ gulp.task('copy', function() {
         .pipe(gulp.dest('client/public/font-awesome'))
 })
 
+
+
+gulp.task('prodBuild', ['clean'], function() {
+  console.log("Concating and moving all the css files in styles folder");
+  return gulp.src("client/app/css/*.min.css")
+      .pipe(concat('main.min.css'))
+      .pipe(gulp.dest('build/styles'));
+});
+
 // Run everything
 gulp.task('default', ['less', 'minify-css', 'minify-js-functions', 'copy']);
 
@@ -124,7 +196,7 @@ gulp.task('browserSync', function() {
 })
 
 // Dev task with browserSync
-gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js-functions'], function() {
+gulp.task('dev', ['browserSync', 'less', 'minify-css', 'minify-js'], function() {
     gulp.watch('less/*.less', ['less']);
     gulp.watch('css/*.css', ['minify-css']);
     gulp.watch('js/*.js', ['minify-js']);
