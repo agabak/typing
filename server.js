@@ -3,7 +3,7 @@
    let express = require('express'),
        path = require('path'),
        bodyParser = require('body-parser'),
-       port = process.env.PORT | 8080,
+       port = process.env.PORT || 8080,
        mainRouter = require('./api/routers/main.router'),
        app = express();
 
