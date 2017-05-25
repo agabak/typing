@@ -98,7 +98,7 @@ a:hover {
 	padding-top:5px;
 	float: left;	
 	font-size: 25px;	
-	color:#d9ae6a;	
+	color:#817158;;	
 	text-transform:uppercase;
 	font-weight:900;
 }
@@ -134,7 +134,7 @@ a:hover {
 }
 
 .nav-tabs > li > a:hover {	
-	color: #d9ae6a;
+	color: #817158;;
 	border-color: #fff #fff #fff;
 	border-radius:0;
 	background-color:#fff; 
@@ -144,7 +144,7 @@ a:hover {
 	-o-transition: all 0.3s ease-in-out;
 }
 .nav-tabs > li > a.active {
-	color: #d9ae6a;
+	color: #817158;;
 	border-radius:0;
 	transition: all 0.3s ease-in-out;
 	-moz-transition: all 0.3s ease-in-out;
@@ -175,11 +175,11 @@ a:hover {
 }
 
 #carousel-slider .carousel-indicators li {
-  border: 1px solid #ffbd20;
+  border: 1px solid #817158;;
 }
 
 #carousel-slider a i {
-	border: 1px solid #d9ae6a;
+	border: 1px solid #817158;;
 	border-radius:50%;
 	font-size: 28px;
 	height: 50px;
@@ -188,13 +188,13 @@ a:hover {
 	top: 50%;
 	width: 50px;
 	color:#fff;
-	background:#d9ae6a;
+	background:#817158;;
 }
 
 #carousel-slider a i:hover {
-  background:#deae62;
+  background:#817158;;
   color:#fff;
-  border: 1px solid #d9ae6a;
+  border: 1px solid #817158;;
 }
 
 #carousel-slider 
@@ -307,19 +307,19 @@ a.accordion-toggle  i{
   margin-top: -10px;
   text-align: center;
   margin-right: -15px;
-  background: #d9ae6a;
+  background: #817158;;
   color:#fff;
   border-radius:4px;
 }
 
 .panel-heading.active a.accordion-toggle i{
-  background: #d9ae6a;
+  background: #817158;;
   color: #fff;
   border-radius:4px;
 }
 
 .panel-heading.active a.accordion-toggle.collapsed i{
-  background: #d9ae6a;
+  background: #817158;;
   color: #fff;
 }
 
@@ -350,7 +350,7 @@ a.accordion-toggle  i{
 	margin-bottom:30px;
 	color:#fff;
 	padding:50px;
-	background:#d9ae6a;
+	background:#817158;;
 	border-radius:50%;
 }
 
@@ -363,7 +363,7 @@ a.accordion-toggle  i{
 
 .hi-icon-effect i.fa:hover {
 	background:#fff;
-	color: #d9ae6a;
+	color: #817158;;
 	-webkit-transition: color 300ms, background-color 300ms;
   -moz-transition: color 300ms, background-color 300ms;
   -o-transition:  color 300ms, background-color 300ms;
@@ -447,7 +447,7 @@ textarea#message{
 ============================ */
 footer {
 	padding:50px;
-	background:#dab273;
+	background:#817158;;
 }
 
 footer h4 {
@@ -527,7 +527,7 @@ ul.social-network {
   -o-transition: all 0.3s ease-in-out;
 }
 .sub-footer  {
-	background:#d9ae6a;
+	background:#817158;;
 	padding:30px;
 }
 
